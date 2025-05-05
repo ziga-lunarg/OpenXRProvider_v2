@@ -31,6 +31,7 @@
   <uses-permission android:name="com.oculus.permission.EYE_TRACKING" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
   
   <queries>
     <provider android:authorities="org.khronos.openxr.runtime_broker;org.khronos.openxr.system_runtime_broker" />
@@ -54,7 +55,8 @@
       android:resizeableActivity="false"
       android:screenOrientation="landscape"
       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-      tools:ignore="NonResizeableActivity">
+      tools:ignore="NonResizeableActivity"
+	  android:exported="true">
 
       <!-- Tell NativeActivity the name of the .so -->
       <meta-data

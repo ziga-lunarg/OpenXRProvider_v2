@@ -504,7 +504,8 @@ XrResult demo_openxr_start()
 		// (17) Input
 		if ( bProcessInputFrame && g_pInput )
 		{
-			g_inputThread = std::async( std::launch::async, &oxr::Input::ProcessInput, g_pInput );
+//			g_inputThread = std::async( std::launch::async, &oxr::Input::ProcessInput, g_pInput );
+                        g_pInput->ProcessInput();
 		}
 
 		// (18) Render

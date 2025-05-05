@@ -2,7 +2,12 @@
 # Sample 08 - Finger Painting 3
 
 cmake_minimum_required(VERSION 3.14.4 FATAL_ERROR)
-set(CMAKE_SUPPRESS_REGENERATION true)
+set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+set(CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE STRING "Debug C Flags" FORCE)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE STRING "Debug C++ Flags" FORCE)
+set(CMAKE_STRIP "")
+
+
 
 set(SAMPLE_PROJECT "sample_08_finger_painting3")
 project("${SAMPLE_PROJECT}" VERSION 0.1.0)
