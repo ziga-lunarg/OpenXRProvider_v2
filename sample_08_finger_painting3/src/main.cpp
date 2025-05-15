@@ -212,8 +212,32 @@ XrResult demo_openxr_start()
 
 	// (8.4) Add animated model to scene, and its enable animations
 	g_unAnimatedModel = g_pRender->AddRenderSector( "models/luminaris.glb", { 1.0f, 1.0f, 1.0f } );
+	/*g_unAnimatedModel = g_pRender->AddRenderSector( "models/1.glb", { 0.1f, 0.1f, 0.1f } );
+	g_pRender->vecRenderSectors[ g_unAnimatedModel ]->currentPose.position.y = 0.2f;
+	g_pRender->vecRenderSectors[ g_unAnimatedModel ]->currentPose.position.z = -0.7f;*/
+
 	g_pRender->vecRenderSectors[ g_unAnimatedModel ]->fAnimSpeed = g_fAnimSpeed;
 	g_pRender->vecRenderSectors[ g_unAnimatedModel ]->bPlayAnimations = true;
+
+	//g_unAnimatedModel = g_pRender->AddRenderSector( "models/luminaris.glb", { 1.0f, 1.0f, 1.0f } );
+	//g_pRender->vecRenderSectors[ g_unAnimatedModel ]->currentPose.position.x = 1.0f;
+
+    uint32_t g_logoModel = g_pRender->AddRenderSector( "models/untitled.glb", { 0.4f, 0.2f, 0.001f } );
+    g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.x = -1.0f;
+    g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.y = 0.7f;
+    g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.z = -0.7f;
+	g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.orientation.y = 0.5f;
+
+	uint32_t g_logoModel2 = g_pRender->AddRenderSector( "models/logo2.glb", { 0.4f, 0.2f, 0.001f } );
+	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.x = 1.0f;
+	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.y = 0.7f;
+	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.z = -0.7f;
+	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.orientation.y = -0.35f;
+
+	/*uint32_t g_cubeModel = g_pRender->AddRenderSector( "models/1.glb", { 0.06f, 0.06f, 0.06f } );
+	g_pRender->vecRenderSectors[ g_cubeModel ]->currentPose.position.x = 1.0f;
+	g_pRender->vecRenderSectors[ g_cubeModel ]->currentPose.position.y = 0.2f;*/
+
 
 	// (8.5) Optional - Set vismask if present
 	oxr::ExtVisMask *pVisMask = static_cast< oxr::ExtVisMask * >( oxrProvider->Instance()->extHandler.GetExtension( XR_KHR_VISIBILITY_MASK_EXTENSION_NAME ) );
