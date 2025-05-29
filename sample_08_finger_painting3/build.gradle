@@ -57,7 +57,16 @@ android {
             assets.srcDirs =['android_assets']
         }
     }
-
+	
+    signingConfigs {
+        release {
+            storeFile file("my-release-key.jks")
+            storePassword "testtest"
+            keyAlias "my-key-alias"
+            keyPassword "testtest"
+        }
+    }
+	
     buildTypes {
         debug {
             debuggable true
@@ -75,10 +84,21 @@ android {
 				debugSymbolLevel 'FULL'
 			}
         }
-    }
-	
-	packagingOptions {
-        doNotStrip '**/*.so'
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+			minifyEnabled false
+			shrinkResources false
+            externalNativeBuild {
+                cmake {
+                    arguments "-DCMAKE_BUILD_TYPE=Release"
+                }
+            }
+			ndk {
+				debuggable false
+			}
+        }
     }
 
     externalNativeBuild {
