@@ -224,13 +224,13 @@ XrResult demo_openxr_start()
 
     uint32_t g_logoModel = g_pRender->AddRenderSector( "models/untitled.glb", { 0.4f, 0.2f, 0.001f } );
     g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.x = -1.0f;
-    g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.y = 0.7f;
+    g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.y = 1.3f;
     g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.position.z = -0.7f;
 	g_pRender->vecRenderSectors[ g_logoModel ]->currentPose.orientation.y = 0.5f;
 
-	uint32_t g_logoModel2 = g_pRender->AddRenderSector( "models/logo2.glb", { 0.4f, 0.2f, 0.001f } );
+	uint32_t g_logoModel2 = g_pRender->AddRenderSector( "models/untitled.glb", { 0.4f, 0.2f, 0.001f } );
 	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.x = 1.0f;
-	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.y = 0.7f;
+	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.y = 1.3f;
 	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.position.z = -0.7f;
 	g_pRender->vecRenderSectors[ g_logoModel2 ]->currentPose.orientation.y = -0.35f;
 
