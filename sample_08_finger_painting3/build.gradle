@@ -87,7 +87,7 @@ android {
         }
         release {
             signingConfig signingConfigs.release
-            debuggable false
+            debuggable true
             jniDebuggable false
 			minifyEnabled false
 			shrinkResources false
@@ -97,7 +97,7 @@ android {
                 }
             }
 			ndk {
-				debuggable false
+				debuggable true
 			}
         }
     }
