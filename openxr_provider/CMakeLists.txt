@@ -104,17 +104,9 @@ generate_export_header(${OPENXR_PROVIDER})
 message(STATUS "[${OPENXR_PROVIDER}] Export headers generated.")
 
 # Link third party libraries
-if(ANDROID)
-    # Use Meta's custom openxr android loader
-    add_library(openxr_loader SHARED IMPORTED)
-    set_property(
-        TARGET openxr_loader
-        PROPERTY IMPORTED_LOCATION
-        "${CMAKE_SOURCE_DIR}/openxr_provider/third_party/openxr_meta/OpenXR/Libs/Android/arm64-v8a/Debug/libopenxr_loader.so")
-else()
-    # For other platforms, we'll build the loader from source
-    add_subdirectory(third_party/openxr)
-endif()
+# The Khronos OpenXR Android Loader is now supported by Meta. For OpenXR-SDK >= 1.0.34
+# So build from source on all platforms
+add_subdirectory(third_party/openxr)
 
 # Link the openxr loader and vulkan libraries
 if(ANDROID)
@@ -161,10 +153,3 @@ add_custom_command(TARGET ${OPENXR_PROVIDER} POST_BUILD
             ${PROVIDER_INCLUDE_DIRECTORY}/openxr/LICENSE
         )
 
-if(ANDROID)
-add_custom_command(TARGET ${OPENXR_PROVIDER} POST_BUILD
-        # Copy Meta's custom openxr android loader
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/openxr_provider/third_party/openxr_meta/OpenXR/Libs/Android/arm64-v8a/Debug"
-        "${PROVIDER_BINARY_DIRECTORY}")
-endif()

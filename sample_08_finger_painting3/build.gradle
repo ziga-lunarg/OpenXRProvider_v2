@@ -10,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.android.tools.build:gradle:8.1.2'
     }
 }
 
@@ -27,6 +27,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
     ndkVersion "25.1.8937393"
+    namespace "net.beyondreality.openxr_provider.finger_painting3"
 
     defaultConfig {
         applicationId "net.beyondreality.openxr_provider.finger_painting3"
