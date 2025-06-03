@@ -79,25 +79,26 @@ android {
                     arguments "-DCMAKE_BUILD_TYPE=Debug"
                 }
             }
-			ndk {
-				debuggable true
-				debugSymbolLevel 'FULL'
-			}
+            ndk {
+                debuggable true
+                debugSymbolLevel 'FULL'
+            }
         }
         release {
             signingConfig signingConfigs.release
-            debuggable false
+            debuggable true
             jniDebuggable false
-			minifyEnabled false
-			shrinkResources false
+            minifyEnabled false
+            shrinkResources false
             externalNativeBuild {
                 cmake {
                     arguments "-DCMAKE_BUILD_TYPE=Release"
+                    cppFlags "-DCMAKE_CXX_FLAGS=-O3"
                 }
             }
-			ndk {
-				debuggable false
-			}
+            ndk {
+                debuggable  true
+            }
         }
     }
 
