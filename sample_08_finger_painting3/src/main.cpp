@@ -122,7 +122,8 @@ XrResult demo_openxr_start()
 		}
 	}
 
-	g_extFBPassthrough = static_cast< oxr::ExtFBPassthrough * >( oxrProvider->Instance()->extHandler.GetExtension( XR_FB_PASSTHROUGH_EXTENSION_NAME ) );
+	//g_extFBPassthrough = static_cast< oxr::ExtFBPassthrough * >( oxrProvider->Instance()->extHandler.GetExtension( XR_FB_PASSTHROUGH_EXTENSION_NAME ) );
+	g_extFBPassthrough = nullptr;
 	if ( g_extFBPassthrough && g_pSession->GetAppSpace() != XR_NULL_HANDLE )
 	{
 		if ( !XR_UNQUALIFIED_SUCCESS( g_extFBPassthrough->Init() ) )
